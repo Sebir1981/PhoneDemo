@@ -101,6 +101,7 @@ public class Application {
 			
 			@Override
 			public int compare(PhoneNote o1, PhoneNote o2) {
+				
 				PhoneNumber n1 = o1.getNumber();
 				PhoneNumber n2 = o2.getNumber();
 				int cmp = n1.getNumber().compareTo(n2.getNumber());
@@ -114,7 +115,7 @@ public class Application {
 	}
 
 	private static void showNotes(IPhoneNotesDAO dao) {
-		PhoneNote[] notes = dao.GetNotes();
+		PhoneNote[] notes = dao.AllNotes();
 		for (PhoneNote phoneNote : notes) {
 			PhoneNumber number = phoneNote.getNumber();
 			String out = String.format("%s, %s, %s, %s, %s", number.getNumber(), number.getType(), phoneNote.getSurname(), phoneNote.getName(), phoneNote.getTag());
